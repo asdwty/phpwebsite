@@ -21,8 +21,6 @@ services:
       
     git-server:
       build: ./repos
-        dockerfile: gitserver.Dockerfile
-        context: .
       restart: always
       ports:
         - "3000:3000"
