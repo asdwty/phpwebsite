@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	   exit;
   }
   else {
-       header("Location: test.php");
+       header("Location: index.php");
 	   exit;
   }
 }
