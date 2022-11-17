@@ -7,14 +7,9 @@ pipeline {
       }
     }
       
-    stage('OWASP DependencyCheck') {
-      steps {
-        dependencyCheck additionalArguments: '--format HTML --format XML ' , odcInstallation: 'Default'
-      }
-    }
     stage('Docker compose') {
       steps {
-        sh "docker compose -f docker-compose.yml up --build"
+        sh "docker compose up --build"
       }
     }
   }
