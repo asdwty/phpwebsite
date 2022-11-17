@@ -20,7 +20,7 @@ services:
       - ./jenkins_home:/var/jenkins_home  
       
     git-server:
-      build:
+      build: ./repos
         dockerfile: gitserver.Dockerfile
         context: .
       restart: always
@@ -28,6 +28,7 @@ services:
         - "3000:3000"
       volumes:
         - ./repos:/var/www/git
+        
     SonarQube:
     image: SonarQube:community
     depends_on:
