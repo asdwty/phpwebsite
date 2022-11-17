@@ -1,12 +1,41 @@
+<!DOCTYPE HTML>  
 <html>
 <head>
 </head>
-<body>
-<form method="post" action="output.php"> 
-	Input <input type="text" name="name" value="">
-	<br><br>
+<body>  
+
+<?php
+$name = "";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $name = test_input($_POST["name"]);
+  if ( ctype_alpha($name)) { 
+       header("Location: output.php");
+	   exit;
+  }
+  else {
+       header("Location: test.php");
+	   exit;
+  }
+}
+
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+
+
+?>
+
+<h2>PHP Form Validation Example</h2>
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
+  Name: <input type="text" name="name">
+  <br><br>
   <input type="submit" name="submit" value="Submit">  
 </form>
-</body>
 
+
+
+</body>
 </html>
