@@ -9,7 +9,7 @@ $name = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $name = test_input($_POST["name"]);
   if ( ctype_alpha($name)) { 
-       header("Location: output.php");
+       header("Location: output.php?search=".$name);
 	   exit;
   }
   else {
@@ -30,7 +30,7 @@ function test_input($data) {
 
 <h2>PHP Form Validation Example</h2>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">  
-  Name: <input type="text" name="name">
+  Search: <input type="text" name="name">
   <br><br>
   <input type="submit" name="submit" value="Submit">  
 </form>
