@@ -18,8 +18,11 @@ pipeline {
         dependencyCheck additionalArguments: '--format HTML --format XML ' , odcInstallation: 'Default'
       }
     }
-  
-    
+    stage('Docker compose') {
+      steps {
+        sh "docker compose -f docker-compose.yml up --build"
+      }
+    }
   }
   
   post {
