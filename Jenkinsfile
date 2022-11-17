@@ -3,7 +3,8 @@ pipeline {
   stages {
     stage('Docker compose') {
       steps {
-        sh "docker compose -f docker-compose.yml up --build"
+	sh "apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin"
+        sh "docker compose up"
       }
     }
     
