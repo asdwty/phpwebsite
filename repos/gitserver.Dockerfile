@@ -2,7 +2,7 @@ FROM node:alpine
 
 RUN apk add --no-cache tini git \
     && yarn global add git-http-server \
-    && adduser -D -g yeoswanyew 
+    && adduser -D -g yeoswanyew 2000981@sit.singaporetech.edu.sg
 
 USER git
 WORKDIR /home/git
