@@ -6,10 +6,16 @@ pipeline {
         checkout scm
       }
     }
-      
+    
     stage('Docker compose') {
       steps {
         sh "docker-compose up"
+      }
+    }
+    
+    stage('OWASP DependencyCheck') {
+      steps {
+        dependencyCheck additionalArguments: '--format HTML --format XML ' , odcInstallation: 'Default'
       }
     }
   }
