@@ -1,12 +1,6 @@
 pipeline {
   agent any
   stages {
-    stage('Stopping Previous Build') {
-      steps {
-        cancelPreviousBuilds()
-      }
-    }
-    
     stage('Checkout') {
       steps {
         checkout scm
